@@ -1,4 +1,5 @@
 import random
+import Cell
 
 class Maze:
     # constructor - length is x, width is y
@@ -9,6 +10,10 @@ class Maze:
         for x in cellList:
             for y in cellList[x]:
                 cellList[x][y] = Cell(x, y)
+    
+    # method to get a cell with given coordinates
+    def getCell(self, x, y):
+        return cellList[x][y]
     
     # method to find and give random neighbours of given coordinate
     def findNeighbour(self, x, y):
