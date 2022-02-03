@@ -2,9 +2,6 @@ class Cell:
     # boolean to see if cell has been passed by generator
     passed = False
     
-    # string to store direction cell traveled from. "O" is none
-    cameFrom = "O"
-    
     # dictionary to store opposite directions
     oppositeDirection = {
         "N": "S",
@@ -17,19 +14,9 @@ class Cell:
     wallList = ["N", "E", "S", "W"]
     
     # constructor
-    def __init__(self, x, y, cameFrom):
+    def __init__(self, x, y):
         self.x = x;
         self.y = y;
-    
-    # method to enter a cell and effect walls
-    def startPass(self, cameFrom):
-        self.cameFrom = cameFrom
-        passed = True
-        wallList.append(oppositeDirection[cameFrom])
-    
-    # method to exit a cell and effect walls
-    def endPass(self, goingTo):
-        wallList.append(goingTo)
     
     # set/get cameFrom variable
     def setCameFrom(self, cameFrom):
