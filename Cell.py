@@ -59,3 +59,4 @@ There are also methods to get the opposite edge given one.
 Other methods will come as I write out the code.
 The cell will also have an attribute to mark if they have been visited
 */
+
