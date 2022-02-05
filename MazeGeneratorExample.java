@@ -6,7 +6,7 @@ import java.util.Arrays;
  * shamelessly borrowed from the ruby at
  * http://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
  */
-public class MazeGenerator {
+public class MazeGeneratorExample {
 	private final int x;
 	private final int y;
 	private final int[][] maze;
