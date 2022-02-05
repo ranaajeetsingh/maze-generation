@@ -1,33 +1,63 @@
-import random
-import Cell
+import java.io.*;
+import java.util.*;
 
-class Maze:
-    # constructor - length is x, width is y
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
-        self.cellList = [[]*width]*length
-        for x in cellList:
-            for y in cellList[x]:
-                cellList[x][y] = Cell(x, y)
-    
-    # method to get a cell with given coordinates
-    def getCell(self, x, y):
-        return cellList[x][y]
-    
-    # method to find and give random neighbours of given coordinate
-    def findNeighbour(self, x, y):
-        neighbours = []
-        # may need to add try/catch, idk how python compile works
-        if not cellList[x-1][y+1].getPassed():
-            neighbours.append(cellList[x-1][y])
-        if not cellList[x+1][y-1].getPassed():
-            neighbours.append(cellList[x+1][y-1])
-        if not cellList[x-1][y-1].getPassed():
-            neighbours.append(cellList[x-1][y])
-        if not cellList[x+1][y+1].getPassed():
-            neighbours.append(cellList[x+1][y+1])
-        rand = random.randint(0, len(neighbours)-1)
-        return neighbours.get(rand)
-        
-            
+public class Maze
+{
+   // width and length of maze
+   private int rows, cols;
+   
+   // 2D array of cells
+   private static Cell[][] mazeList;
+   
+   public Maze() {
+      this.rows = 5;
+      this.cols = 5;
+   }
+   
+   // constructor
+   public Maze(int r, int c) {
+      this.rows = r;
+      this.cols = c;
+      mazeList = new Cell[rows][cols];
+      //mazeList[0][0].direction = "N";
+      //mazeList[0][0].discover();
+      /*
+      for (int x = 0; x < rows; x++) {
+         for (int y = 0; y < cols; y++) {
+            mazeList[x][y].x = x;
+            mazeList[x][y].y = y;
+         }
+      }
+      System.out.println(mazeList[0][0]);
+      */
+   }
+   
+   public Cell getCell(int x, int y) {return mazeList[x][y];}
+   
+   // method to return a list of possible cells to move in
+   public List<Cell> getEdges(int x, int y) {
+      List<Cell> cellList = new ArrayList<>();
+      cellList.add(mazeList[x-1][y]);
+      mazeList[x-1][y].direction = "E";
+      
+      cellList.add(mazeList[x+1][y]);
+      mazeList[x+1][y].direction = "W";
+      
+      cellList.add(mazeList[x][y+1]);
+      mazeList[x][y+1].direction = "N";
+      
+      cellList.add(mazeList[x][y+1]);
+      mazeList[x][y-1].direction = "S";
+      
+      Collections.shuffle(cellList);
+      
+      return cellList;
+   }
+   
+}
+
+/* MAZE STRUCTURE
+The maze contains a 2D array of Cells
+There are certain methods to manipulate the maze an its 
+
+*/
