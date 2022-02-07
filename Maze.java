@@ -33,6 +33,8 @@ public class Maze
    }
    
    public Cell getCell(int x, int y) {return mazeList[x][y];}
+
+   public void setCell(int x, int y) {mazeList[x][y] = new Cell();}
    
    // method to return a list of possible cells to move in
    public List<Cell> getEdges(int x, int y) {
