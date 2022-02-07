@@ -8,6 +8,7 @@ public class Main
 	   System.out.println("did it work");
 	   int x = 3;
 	   Maze test = new Maze(5, 5);
+	   test.setCell(0, 0);
 	   test.getCell(0, 0).discover();
 		//Maze mazeObj = new Maze(5, 5);
 		//DFS(mazeObj, mazeObj.getCell(0, 0));
